@@ -1,0 +1,52 @@
+.Navber-img{
+  margin: 0px;
+  margin-left: 15%;
+  width:5%;
+}
+.sidebar {
+    position: fixed; /* Change :absolute; to :fixed; to keep the sidebar in place when scolling. */
+/* Sidebar Background */
+    width: 200px;
+/* Width of side bar. WARNING: If you change this, change .listItemA:width */
+    height: 100%;
+    padding-top: 10px;
+    font-family: helvetica;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #3d7094;
+}
+
+.sidebar ul {
+    line-height: 40px;
+    overflow: hidden;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.sidebar ul li {
+    list-style-type: none;
+    background: #FF712C;
+/* Background colour of the menu items. */
+    color: #695D46;
+/* Text colour of the side bar titles. (Not the links). */
+}
+
+.listItemA {
+    height: 40px;
+    width: 240px;
+/* Alter this to be the .sidebar:width PLUS 40 */
+    transition: .3s;
+/* Speed of the hover animation */
+    position: relative;
+    left: -40px;
+}
+
+.listItemA:hover {
+    left: 0;
+}
+
+.listItemT {
+    text-align: center;
+}
