@@ -1,14 +1,17 @@
 import React from 'react';
 
-import Header from './common/Header';
-import Navbar from './common/Navbar';
-import Navbar2 from './common/Navbar2';
+import Sidebar from './common/Sidebar';
+
 
 function App() {
   return (
+    /*주석*/
   <>
+  {/*
     <Header/>
-    <Navbar2/>
+    <Navbar2/
+  */}
+    <Sidebar/>
   </>
   );
 }

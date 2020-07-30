@@ -31,7 +31,7 @@ import React, { useEffect, useState } from 'react'
 import Axios from 'axios'
 
 function Hello() {
-  const [Name, setName] = useStae("")
+  const [Name, setName] = useState("");
 
   useEffect(() => {
       Axios.get('/api/user/name')
@@ -48,3 +48,47 @@ function Hello() {
 
 }
 export default Hello;
+
+
+// react 조건부 랜더링
+import React, { useEffect, useState } from 'react'
+import style from '../../utils/css/mainpage/Main.css';
+
+function Main() {
+  const [Size, setSize] = useState(window.innerWidth);
+  console.log(Size);
+  if(parseInt(Size) > 768)
+  {
+    return (
+      <table className="table">
+        <tr>
+          <td className="MainTitle" >URL<br/>STUDY</td>
+          <td className="SubTitle">
+            <b>URL STUDY is a web application that allows you to record</b>
+            <b>and manage URLs used for a variety of purposes.</b>
+          </td>
+        </tr>
+      </table>
+    );
+  }
+  else{
+    return (
+      <table className="table">
+        <tr>
+          <td className="MainTitle" >URL<br/>STUDY</td>
+        </tr>
+        <tr>
+          <td className="SubTitle">
+            <b>URL STUDY is a web application that allows you to record</b>
+            <b>and manage URLs used for a variety of purposes.</b>
+          </td>
+        </tr>
+      </table>
+    );
+  }
+}
+function A(){
+  setInterval(Main,1000);
+}
+
+export default Main;

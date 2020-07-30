@@ -1,0 +1,33 @@
+.react-kanban-column{
+  background-color: #f9e5ef;
+  border: 1px #f6d9e7 solid;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 15px;
+}
+span:nth-child(2){
+  float: right;
+}
+.react-kanban-card-adder-button{
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+
+}
+.react-kanban-column-header{
+  padding-bottom: 10px;
+}
+.react-kanban-card__title{
+  padding-bottom: 5px;
+  border-bottom: 1px #cbcbcb solid;
+}
+.react-kanban-card {
+  background-color: #f9f1f5;
+  padding: 5px;
+  margin: 5px;
+  width: 150px;
+}
+.react-kanban-board{
+  margin-left: 100px;
+  overflow-y: visible !important;
+}

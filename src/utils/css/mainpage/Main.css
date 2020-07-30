@@ -1,0 +1,110 @@
+body{
+  background-color: #f9f1f5;
+}
+a{
+  text-decoration: none;
+}
+.table{
+  width: 80%;
+  color: #921bf5;
+  margin-top: 0px;
+  margin-left : 150px;
+}
+td.MainTitle{
+  font-size: 6rem;
+  color: #921bf5;
+  padding-right: 200px;
+  border: none;
+  border-right: 0px solid #921bf5;
+}
+td.SubTitle{
+  font-size: 2rem;
+  color: #eb56a4;
+  padding-left: 50px;
+  border: none;
+  display: none;
+}
+td.MinSubTitle{
+  font-size: 1rem;
+  color: #eb56a4;
+  display: block;
+  padding-right: 170px;
+}
+@media only screen and (min-width: 768px) {
+  .table{
+    width: 80%;
+    color: #921bf5;
+    margin-top: 250px;
+    margin-left : 150px;
+  }
+  td.MainTitle{
+    font-size: 8rem;
+    color: #921bf5;
+    padding-right: 50px;
+    border: none;
+    border-right: 3px solid #921bf5;
+
+  }
+  td.SubTitle{
+    font-size: 1rem;
+    color: #eb56a4;
+    padding-left: 50px;
+    border: none;
+    display: block;
+  }
+  td.MinSubTitle{
+    display: none;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .table{
+    width: 80%;
+    color: #921bf5;
+    margin-top: 180px;
+    margin-left : 200px;
+  }
+  td.MainTitle{
+    font-size: 12rem;
+    color: #921bf5;
+    padding-right: 120px;
+    border: none;
+    border-right: 3px solid #921bf5;
+
+  }
+  td.SubTitle{
+    font-size: 1.4rem;
+    color: #eb56a4;
+    padding-left: 50px;
+    border: none;
+    display: block;
+  }
+  td.MinSubTitle{
+    display: none;
+  }
+}
+@media only screen and (min-width: 1500px) {
+  .table{
+    width: 80%;
+    color: #921bf5;
+    margin-top: 100px;
+    margin-left : 300px;
+  }
+  td.MainTitle{
+    font-size: 16rem;
+    color: #921bf5;
+    padding-right: 200px;
+    border: none;
+    border-right: 3px solid #921bf5;
+
+  }
+  td.SubTitle{
+    font-size: 2rem;
+    color: #eb56a4;
+    padding-left: 50px;
+    border: none;
+    display: block;
+  }
+  td.MinSubTitle{
+    display: none;
+  }
+}

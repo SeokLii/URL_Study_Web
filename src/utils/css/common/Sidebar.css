@@ -1,0 +1,23 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css);
+
+.SidebarIcon{
+  font-size: 1.3em;
+}
+@media only screen and (min-width: 768px) {
+  .SidebarIcon{
+    font-size: 1.55em;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .SidebarIcon{
+    font-size: 1.75em;
+  }
+}
+@media only screen and (min-width: 1500px) {
+  .SidebarIcon{
+    font-size: 1.9em;
+  }
+}
+.sidenav---icon-bar---u1f02{
+  float: none !important;
+}

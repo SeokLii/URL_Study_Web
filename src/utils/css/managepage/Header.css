@@ -1,0 +1,36 @@
+
+.Header{
+  margin-left: 64px;
+  padding: 25px;
+  background-color: #f268b0;
+}
+.HeaderIcon{
+  padding-right: 10px;
+}
+.Create{
+  color:#FFFFFF;
+  margin-top: -10px;
+  font-size: 1.1em;
+  float: left;
+}
+.Create:hover{
+  font-size: 1.2em;
+}
+.Delete{
+  color:#FFFFFF;
+  margin-top: -10px;
+  font-size: 1.1em;
+  float: right;
+}
+.ho{
+  width: 100px;
+}
+@media only screen and (min-width: 768px) {
+
+}
+@media only screen and (min-width: 992px) {
+
+}
+@media only screen and (min-width: 1500px) {
+
+}
