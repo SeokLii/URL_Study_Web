@@ -9,7 +9,7 @@ function App() {
   <>
   {/*
     <Header/>
-    <Navbar2/
+    <Navbar2/>
   */}
     <Sidebar/>
   </>

@@ -16,7 +16,7 @@ function Header() {
   return (
     (
       <div className="Header">
-        <div className="Create"><i className="far fa-calendar-plus HeaderIcon"></i><b>목록추가</b></div>
+        <div className="Create"><i className="far fa-clipboard"></i><b>목록추가</b></div>
         <div className="Delete"><i className="fas fa-trash HeaderIcon"></i><b>목록 삭제</b></div>
       </div>
     )

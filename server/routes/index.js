@@ -4,9 +4,12 @@ var mysql_odbc = require('../database/database_conn')();
 const router = express.Router();
 const connection = mysql_odbc.init();
 
-router.get('/', function(req, res){
-
-  res.render('App');
+router.get('/hello', function(req, res){
+  var sql = "select * from user";
+    connection.query(sql, function (err, rows) {
+      console.log(rows);
+       res.send(rows);
+    });
 });
 router.get('/hi', function(req, res){
 

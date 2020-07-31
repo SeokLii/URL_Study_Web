@@ -3,6 +3,9 @@ import React from 'react';
 //page
 import Header from './sections/Header';
 import DragAndDrop from './sections/DragAndDrop';
+import Render from './sections/Render';
+import DAD from './sections/DAD';
+
 
 
 //style
@@ -13,6 +16,8 @@ function Management() {
   (
     <>
       <Header/>
+      {/*<DAD/>*/}
+      {/*<DragAndDrop/>*/}
       <DragAndDrop/>
     </>
   )

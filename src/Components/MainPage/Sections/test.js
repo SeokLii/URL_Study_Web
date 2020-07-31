@@ -92,3 +92,21 @@ function A(){
 }
 
 export default Main;
+
+
+render() {
+  const tempStyle={
+    display:"inline-block",
+    width:"100px",
+    height:"100px",
+    boder:"1px solid black",
+    background:"orange",
+  }
+  return
+    (
+      <Fragment>
+      <div style={tempStyle}></div>
+      </Fragment>
+    );
+  }
+}
