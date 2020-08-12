@@ -1,11 +1,8 @@
-#shown{
-  display: block;
-}
-#hidden{
-  display: none;
-}
-.fas{
-  float: right;
+@import url(https://fonts.googleapis.com/css?family=Black+Han+Sans|Gamja+Flower|Hi+Melody|Jua|Nanum+Brush+Script|Nanum+Pen+Script&display=swap&subset=korean);
+
+a{
+  color: #be7df5;
+  font-size: 13px;
 }
 .react-kanban-column{
   background-color: #f9e5ef;
@@ -13,12 +10,12 @@
   border-radius: 10px;
   margin: 10px;
   padding: 15px;
+  width: 200px;
 }
 .react-kanban-card-adder-button{
   display: block;
   width: 100%;
   margin: 0 auto;
-
 }
 .react-kanban-column-header{
   padding-bottom: 10px;
@@ -37,7 +34,145 @@
   margin-left: 100px;
   overflow-y: visible !important;
 }
-#btn{
+
+/* Board button */
+.AddColumBtn{
+  margin-top: 11px;
+  width: 33px;
+  height: 30px;
+  border: 1px #f5a5c3 solid;
+  border-radius: 5px;
+  background-color: #FFBFD7;
+  display: inline-block;
+}
+.ColumnTitle{
+  width: 80%;
+  font-size: 27px;
+  font-family: 'Nanum Pen Script';
+  width: 1000px;
+  height: 10px;
+  margin-bottom:
+}
+.ColumnLeft{
+  float: left;
+}
+.ColumnDelete{
+  float: right;
+}
+
+/* Rename Input */
+.InputRename{
+  margin: 0 auto;
+  border: 0px;
+  margin-top: 15px;
+  display: block;
+  width: 90%;
+  height: 30px;
+  margin-bottom: 7px;
+}
+
+/* Rename button */
+#ReLoadBtn{
+  border: 0px;
+  border-radius: 4px;
+  color: #FFFFFF;
+  background-color: #f76363;
+  font-size: 5px;
+  float: left;
+  margin-left: 5px;
+  margin-top: 7px;
+}
+.RenameColumnBtn{
+  border: 1px #f5a5c3 solid;
+  background-color: #FFBFD7;
+  display: inline-block;
+  width: 48%;
+}
+.RenameCancelBtn{
+  border: 1px #f5a5c3 solid;
+  background-color: #FFBFD7;
+  display: inline-block;
+  width: 48%;
+}
+
+
+/* Card Input */
+.Form{
+  padding: 1px;
+  margin-bottom: 10px;
+}
+.InputTitle{
+  margin: 0 auto;
+  border: 0px;
+  margin-top: 15px;
+  display: block;
+  width: 90%;
+  height: 30px;
+}
+.InputURL{
+  margin: 0 auto;
+  border: 0px;
+  display: block;
+  margin-top: 2px;
+  width: 90%;
+  height: 30px;
+  margin-bottom: 7px;
+}
+
+/* Card button */
+.BtnPackage{
+  text-align: center;
+}
+#AddLoadbtn{
   display: block;
   width: 100%;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  border: 0px;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+}
+.Addcardbtn{
+  border: 1px #f5a5c3 solid;
+  background-color: #FFBFD7;
+  display: inline-block;
+  width: 48%;
+}
+.AddCancelbtn{
+  border: 1px #f5a5c3 solid;
+  background-color: #FFBFD7;
+  display: inline-block;
+  width: 48%;
+}
+.CardDelete{
+}
+/* Card */
+.Card{
+  background-color: #FFFFFF;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  padding: 5px;
+  width: 189px;
+
+  overflow: hidden;
+     text-overflow: ellipsis;
+     display: -webkit-box;
+     -webkit-line-clamp: 3; /* 라인수 */
+     -webkit-box-orient: vertical;
+     word-wrap:break-word;
+     line-height: 1.2em;
+}
+.CardTitle{
+  font-size: 13px;
+  width: 190px;
+}
+.CardTitleLeft{
+  font-size: 23px;
+  font-family: 'Nanum Pen Script';
+  width: 93%;
+  float: left;
+}
+.CardDescription{
+  font-size: 17px;
+  font-family: 'Nanum Pen Script';
 }
