@@ -65,7 +65,7 @@ useEffect(() => {
         // console.log(response.data[0].number);
         // console.log(response.data);
       })
-
+      //if 기존 db와 다르면 axios request해서 mysql 넣기
 }, [])
 
 
@@ -78,7 +78,7 @@ const ColumnAdder = () => {
   )
 }
 const HandleAddColumn = () =>{
-  setDb({
+  setBoard({
     columns: board.columns.push({ id: board.columns.length +1, title: "New", cards:[]})
   })
   //addColumn({id:board.columns.length+1, title: 'Title', cards:[]})
@@ -95,7 +95,7 @@ const HandleLoadRenameForm = ({id}) =>{
 const HandleRenameBoard = ({id, renametitle}, {renameColumn}) =>{
   const change = board;
   change.columns[id-1].title = renametitle;
-  setDb({
+  setBoard({
     columns: change.columns
   })
   // renameColumn('New title');
@@ -122,7 +122,7 @@ const HandleLoadAddForm = ({id}) =>{
 }
 //--카드 추가 눌렀을때--
 const HandleAddCard = ({id, cardtitle, cardescription}, { addCard }) =>{
-  setDb({
+  setBoard({
     columns: board.columns[id-1].cards.push({ id: board.columns[id-1].cards.length+1, title: cardtitle, description: cardescription })
   })
   // addCard({ id: board.columns[id-1].cards.length+1, title: cardtitle, description: cardescription })
@@ -161,7 +161,7 @@ const test =() =>{
 
   return (
     <Board
-      initialBoard={db}
+      initialBoard={board}
 
       /*----Column----*/
       allowAddColumn
@@ -241,8 +241,18 @@ const test =() =>{
       )}
 
       /*----Drag----*/
-      onCardDragEnd={({ toColumnId, toPosition }) => console.log(toColumnId)}
-      onColumnDragEnd={() => console.log(board.columns)}
+      onCardDragEnd={(board, column, source, destination) => {
+        setDb(board);
+        console.log(board.columns.findIndex(i => i.id == 1));
+        console.log(board, column, source, destination);
+        console.log(source.fromPosition, destination.toPosition);
+      }}
+      onColumnDragEnd={(board, column, source, destination) => {
+        setDb(board);
+        console.log(board.columns.findIndex(i => i.id == 1));
+        console.log(board, column, source, destination);
+        console.log(source.fromPosition, destination.toPosition);
+      }}
     >
       {board}
     </Board>
