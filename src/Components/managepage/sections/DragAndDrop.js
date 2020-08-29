@@ -168,7 +168,10 @@ const test =() =>{
       onColumnNew ={console.log}
       renderColumnAdder={() => ColumnAdder()}
       allowRemoveColumn
-      onColumnRemove={console.log}
+      onColumnRemove={(board, column) => {
+        setDb(board);
+        
+      }}
       allowRenameColumn
       onColumnRename={console.log}
       renderColumnHeader={({ id, title, description }, { removeColumn, renameColumn, addCard }) => (
@@ -231,7 +234,10 @@ const test =() =>{
 
       /*----Card----*/
       allowRemoveCard
-      onCardRemove={console.log}
+      onCardRemove={(board, column, card) => {
+        setDb(board);
+        
+      }}
       onCardNew={console.log}
       renderCard={({ title, description }, { removeCard, dragging }) => (
         <div className="Card" dragging={dragging}>
