@@ -2,8 +2,8 @@ import React from 'react';
 
 function Login() {
   return (
-    <div className="App">
-      <header className="App-header">
+    <div>
+      <header>
         <p>
           Edit and save to reload.
         </p>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PhoneForm from './/PhoneForm';
+import PhoneForm from './PhoneForm';
 
 class Render extends Component {
   id = 2

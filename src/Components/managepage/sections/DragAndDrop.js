@@ -24,6 +24,7 @@ const DefaultStlye ={
 }
 
 useEffect(() => {
+<<<<<<< HEAD
   getBoard();
   if(change == 'on')
   {
@@ -83,6 +84,15 @@ const getBoard = async () =>{
   }
   defaultBoard.columns = boardArr;
   setBoard(defaultBoard);
+=======
+    Axios.get('/hello')
+      .then(response => {
+        // console.log(response.data[0].number);
+        // console.log(response.data);
+      })
+      //if 기존 db와 다르면 axios request해서 mysql 넣기
+}, [])
+>>>>>>> bcc7e566aa01ccb8a1503075253295a2196f16f4
 
 }
 
@@ -95,11 +105,17 @@ const ColumnAdder = () => {
   )
 }
 const HandleAddColumn = () =>{
+<<<<<<< HEAD
   var localboard = board;
   console.log(localboard.columns.length);
   localboard.columns.push({ id: localboard.columns.length +1, title: "New", cards:[]});
   setBoard(localboard);
   setChange("on");
+=======
+  setBoard({
+    columns: board.columns.push({ id: board.columns.length +1, title: "New", cards:[]})
+  })
+>>>>>>> bcc7e566aa01ccb8a1503075253295a2196f16f4
   //addColumn({id:board.columns.length+1, title: 'Title', cards:[]})
 }
 
@@ -112,9 +128,17 @@ const HandleLoadRenameForm = ({id}) =>{
 }
 
 const HandleRenameBoard = ({id, renametitle}, {renameColumn}) =>{
+<<<<<<< HEAD
   const localboard = board;
   localboard.columns[id-1].title = renametitle;
   setBoard(localboard);
+=======
+  const change = board;
+  change.columns[id-1].title = renametitle;
+  setBoard({
+    columns: change.columns
+  })
+>>>>>>> bcc7e566aa01ccb8a1503075253295a2196f16f4
   // renameColumn('New title');
 
   //input 초기화
@@ -139,10 +163,16 @@ const HandleLoadAddForm = ({id}) =>{
 }
 //--카드 추가 눌렀을때--
 const HandleAddCard = ({id, cardtitle, cardescription}, { addCard }) =>{
+<<<<<<< HEAD
   var localboard = board;
   console.log(localboard);
   localboard.columns[id-1].cards.push({ id: localboard.columns[id-1].cards.length+1, title: cardtitle, description: cardescription });
   setBoard(localboard);
+=======
+  setBoard({
+    columns: board.columns[id-1].cards.push({ id: board.columns[id-1].cards.length+1, title: cardtitle, description: cardescription })
+  })
+>>>>>>> bcc7e566aa01ccb8a1503075253295a2196f16f4
   // addCard({ id: board.columns[id-1].cards.length+1, title: cardtitle, description: cardescription })
 
   //input 초기화
@@ -186,7 +216,10 @@ const test =() =>{
       onColumnNew ={console.log}
       renderColumnAdder={() => ColumnAdder()}
       allowRemoveColumn
-      onColumnRemove={console.log}
+      onColumnRemove={(board, column) => {
+        setDb(board);
+        
+      }}
       allowRenameColumn
       onColumnRename={console.log}
       renderColumnHeader={({ id, title, description }, { removeColumn, renameColumn, addCard }) => (
@@ -249,7 +282,10 @@ const test =() =>{
 
       /*----Card----*/
       allowRemoveCard
-      onCardRemove={console.log}
+      onCardRemove={(board, column, card) => {
+        setDb(board);
+        
+      }}
       onCardNew={console.log}
       renderCard={({ title, description }, { removeCard, dragging }) => (
         <div className="Card" dragging={dragging}>
@@ -259,8 +295,18 @@ const test =() =>{
       )}
 
       /*----Drag----*/
-      onCardDragEnd={({ toColumnId, toPosition }) => console.log(toColumnId)}
-      onColumnDragEnd={() => console.log(board.columns)}
+      onCardDragEnd={(board, column, source, destination) => {
+        setDb(board);
+        console.log(board.columns.findIndex(i => i.id == 1));
+        console.log(board, column, source, destination);
+        console.log(source.fromPosition, destination.toPosition);
+      }}
+      onColumnDragEnd={(board, column, source, destination) => {
+        setDb(board);
+        console.log(board.columns.findIndex(i => i.id == 1));
+        console.log(board, column, source, destination);
+        console.log(source.fromPosition, destination.toPosition);
+      }}
     >
       {board}
     </Board>
