@@ -187,7 +187,7 @@ const test =() =>{
       renderColumnAdder={() => ColumnAdder()}
       allowRemoveColumn
       onColumnRemove={(board, column) => {
-        setDb(board);
+        setBoard(board);
         
       }}
       allowRenameColumn
@@ -253,7 +253,7 @@ const test =() =>{
       /*----Card----*/
       allowRemoveCard
       onCardRemove={(board, column, card) => {
-        setDb(board);
+        setBoard(board);
         
       }}
       onCardNew={console.log}
@@ -266,13 +266,13 @@ const test =() =>{
 
       /*----Drag----*/
       onCardDragEnd={(board, column, source, destination) => {
-        setDb(board);
+        setBoard(board);
         console.log(board.columns.findIndex(i => i.id == 1));
         console.log(board, column, source, destination);
         console.log(source.fromPosition, destination.toPosition);
       }}
       onColumnDragEnd={(board, column, source, destination) => {
-        setDb(board);
+        setBoard(board);
         console.log(board.columns.findIndex(i => i.id == 1));
         console.log(board, column, source, destination);
         console.log(source.fromPosition, destination.toPosition);
