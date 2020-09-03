@@ -24,7 +24,6 @@ const DefaultStlye ={
 }
 
 useEffect(() => {
-<<<<<<< HEAD
   getBoard();
   if(change == 'on')
   {
@@ -84,15 +83,6 @@ const getBoard = async () =>{
   }
   defaultBoard.columns = boardArr;
   setBoard(defaultBoard);
-=======
-    Axios.get('/hello')
-      .then(response => {
-        // console.log(response.data[0].number);
-        // console.log(response.data);
-      })
-      //if 기존 db와 다르면 axios request해서 mysql 넣기
-}, [])
->>>>>>> bcc7e566aa01ccb8a1503075253295a2196f16f4
 
 }
 
