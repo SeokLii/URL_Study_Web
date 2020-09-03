@@ -44,7 +44,7 @@ function Sidebar() {
             </NavItem>
             <NavItem eventKey="Login">
                 <NavIcon><i className="fab fa-linkedin-in SidebarIcon"/></NavIcon>
-                <NavText><Link style={{'text-decoration':'none'}} to="/Login">Login</Link></NavText>
+                <NavText><Link to="/Login">Login</Link></NavText>
 
             </NavItem>
         </SideNav.Nav>

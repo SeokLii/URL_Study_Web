@@ -6,51 +6,16 @@ import Axios from 'axios';
 
 //style
 import './test.css'
-
+import { getFlatDataFromTree } from "react-sortable-tree";
+import { valHooks } from "jquery";
 
 function DragAndDrop() {
-
-const ttee = {
-  columns: [
-    {
-      id: 1,
-      title: "포털 사이트",
-      cards: [
-        {
-          id: 1,
-          title: "NAVER",
-          description: "https://www.naver.com"
-        },
-        {
-          id: 2,
-          title: "Daum",
-          description: "https://www.daum.net"
-        },
-        {
-          id: 3,
-          title: "YouTube",
-          description: "https://www.youtube.com"
-        }
-      ]
-    },
-    {
-      id: 2,
-      title: "공부",
-      cards: [
-        {
-          id: 9,
-          title: "MDN web docs",
-          description: "https://developer.mozilla.org/ko"
-        }
-      ]
-    }
-  ]
-}
-const [board, setBoard] = useState(ttee);
-const [db, setDb] = useState(ttee);
+var defaultBoard = {columns:[]};
+const [board, setBoard] = useState(defaultBoard);
 const [cardtitle, setCardtitle] = useState('');
 const [cardescription, setCardescription] = useState('');
 const [renametitle, setRenametitle] = useState('');
+const [change, setChange] = useState('off');
 // const { columns } = board; //==const information = this.state.information
 
 //style code
@@ -58,16 +23,68 @@ const DefaultStlye ={
   display: "none"
 }
 
-
 useEffect(() => {
-    Axios.get('/hello')
-      .then(response => {
-        // console.log(response.data[0].number);
-        // console.log(response.data);
-      })
+  getBoard();
+  if(change == 'on')
+  {
+    Axios.post('/update',{
+      params: { // query string
+        boardIdX :'hd',
+        boardTitle : 'hd',
+      }
+    })
+    // for(var a =0; a < board.columns.length; a++)
+    // {
+    //   Axios.get('/update',{
+    //     params: { // query string
+    //       boardIdX : board.columns[a].id,
+    //       boardTitle : board.columns[a].title,
+    //     }
+    //   })
+    //   for(var b=0; b< board.columns[a].cards.length; b++)
+    //   {
+    //     Axios.get('/update',{
+    //       params: { // query string
+    //         cardIdY : board.columns[a].cards[b].id,
+    //         cardTitle : board.columns[a].cards[b].title,
+    //         cardUrl : board.columns[a].cards[b].description
+    //       }
+    //     })
+    //   }
+    // }
+  }
+}, [change])
 
-}, [])
+const getBoard = async () =>{
+  let response = await Axios.get('/hello');
+ 
+  var boardArr = new Array();
+  for(var a=0; a<response.data.board.length; a++){
+    var boardObj = new Object();
+    
+    var cardArr = new Array();
+    boardObj.id = response.data.board[a].IdX;
+    boardObj.title = response.data.board[a].Title;
 
+    //card 만드는곳 Array 안에 Object
+    for(var b = 0; b < response.data.card.length; b++){
+      var cardObj = new Object();
+      if(response.data.board[a].IdX == response.data.card[b].IdX){
+        cardObj.id = response.data.card[b].IdY;
+        cardObj.title = response.data.card[b].title;
+        cardObj.description = response.data.card[b].url;
+        cardArr.push(cardObj);
+      }
+    }
+    //console.log(cardArr); // Card 확인
+    boardObj.cards = cardArr;
+
+    boardArr.push(boardObj);
+  }
+  defaultBoard.columns = boardArr;
+  setBoard(defaultBoard);
+
+}
 
 //-- board 추가 --
 const ColumnAdder = () => {
@@ -78,9 +95,11 @@ const ColumnAdder = () => {
   )
 }
 const HandleAddColumn = () =>{
-  setDb({
-    columns: board.columns.push({ id: board.columns.length +1, title: "New", cards:[]})
-  })
+  var localboard = board;
+  console.log(localboard.columns.length);
+  localboard.columns.push({ id: localboard.columns.length +1, title: "New", cards:[]});
+  setBoard(localboard);
+  setChange("on");
   //addColumn({id:board.columns.length+1, title: 'Title', cards:[]})
 }
 
@@ -93,11 +112,9 @@ const HandleLoadRenameForm = ({id}) =>{
 }
 
 const HandleRenameBoard = ({id, renametitle}, {renameColumn}) =>{
-  const change = board;
-  change.columns[id-1].title = renametitle;
-  setDb({
-    columns: change.columns
-  })
+  const localboard = board;
+  localboard.columns[id-1].title = renametitle;
+  setBoard(localboard);
   // renameColumn('New title');
 
   //input 초기화
@@ -122,9 +139,10 @@ const HandleLoadAddForm = ({id}) =>{
 }
 //--카드 추가 눌렀을때--
 const HandleAddCard = ({id, cardtitle, cardescription}, { addCard }) =>{
-  setDb({
-    columns: board.columns[id-1].cards.push({ id: board.columns[id-1].cards.length+1, title: cardtitle, description: cardescription })
-  })
+  var localboard = board;
+  console.log(localboard);
+  localboard.columns[id-1].cards.push({ id: localboard.columns[id-1].cards.length+1, title: cardtitle, description: cardescription });
+  setBoard(localboard);
   // addCard({ id: board.columns[id-1].cards.length+1, title: cardtitle, description: cardescription })
 
   //input 초기화
@@ -161,7 +179,7 @@ const test =() =>{
 
   return (
     <Board
-      initialBoard={db}
+      initialBoard={board}
 
       /*----Column----*/
       allowAddColumn
